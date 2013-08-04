@@ -70,12 +70,14 @@ can be downloaded by the build pack (see the URIs in `compile`).
     fi
 
     # Clean and extract Apache.
+    echo "Extractiong apache"
     rm -rf $httpd_dirname
     tar jxf $httpd_archive_name
 
     # Build and install Apache.
+    echo "Installing apache"
     pushd $httpd_dirname
-    ./configure --prefix=/app/apache --enable-rewrite --with-included-apr --enable-rewrite --enable-proxy --enable-proxy-http
+    ./configure --prefix=/app/apache --enable-rewrite --with-included-apr --enable-proxy --enable-proxy-http
     make -s
     make install -s
     popd
